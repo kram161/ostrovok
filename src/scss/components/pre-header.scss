@@ -5,6 +5,7 @@
 		width: 100%;
 		height: 700px;
 		overflow: unset;
+		position: relative;
 	}
 	&__slide{
 		position: relative;
@@ -17,7 +18,9 @@
 			filter: brightness(50%)
 		}
 	}
-	&__button-next, &__button-prev {
+	&__prev, &__next {
+		cursor: pointer;
+		position: absolute;
 		top: unset !important;
 		bottom: 84px !important;
 		transform: translateX(-50%);
@@ -25,14 +28,15 @@
 		right: unset;
 		width: 33px;
 		height: 15px;
+		z-index: 2;
 	}
-	&__button-prev{
-		margin: 0 58px 0 0;
+	&__prev{
+		margin: 0 0 0 -38px;
 	}
-	&__button-next{
-		margin: 0 0 0 58px;
+	&__next{
+		margin: 0 0 0 38px;
 	}
-	&__button-next::after, &__button-prev::after {
+	&__next::after, &__prev::after {
 		content: "";
 	}
 	&__slider{
