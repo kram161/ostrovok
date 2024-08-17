@@ -64,3 +64,85 @@ new Accordion('.accordion', {
 	defaultOpen: [], // [0,1]
 	collapsedClass: 'open',
 });
+
+
+import Swiper from '../static/swiper/swiper-bundle.min.mjs'
+
+const preHeader = new Swiper('.pre-header__swiper', {
+	// Optional parameters
+	direction: 'horizontal',
+	loop: true,
+	// Navigation arrows
+	navigation: {
+		nextEl: '.pre-header__next',
+		prevEl: '.pre-header__prev',
+	},
+
+});
+
+const presentationFirst = new Swiper('.first-slider', {
+	// Optional parameters
+	direction: 'horizontal',
+	loop: true,
+	// Navigation arrows
+	navigation: {
+		nextEl: '.first-slider__next',
+		prevEl: '.first-slider__prev',
+	},
+	breakpoints: {
+		// when window width is >= 320px
+		320: {
+			slidesPerView: 1,
+			spaceBetween: 20
+		},
+		// when window width is >= 480px
+		480: {
+			slidesPerView: 2,
+			spaceBetween: 30
+		},
+		// when window width is >= 640px
+		1024: {
+			slidesPerView: 3,
+			spaceBetween: 40
+		}
+	}
+
+});
+
+const presentationSecond = new Swiper('.second-slider', {
+	// Optional parameters
+	direction: 'horizontal',
+	loop: true,
+	// Navigation arrows
+	navigation: {
+		nextEl: '.second-slider__next',
+		prevEl: '.second-slider__prev',
+	},
+	breakpoints: {
+		// when window width is >= 320px
+		320: {
+			slidesPerView: 1,
+			spaceBetween: 20
+		},
+		// when window width is >= 480px
+		480: {
+			slidesPerView: 2,
+			spaceBetween: 30
+		},
+		// when window width is >= 640px
+		1024: {
+			slidesPerView: 3,
+			spaceBetween: 40
+		}
+	}
+
+});
+
+const contact = new Swiper('.contacts__slider', {
+	direction: 'horizontal',
+	loop: true,
+	slidesPerView: 1,
+	autoplay: {
+		delay: 4000,
+	},
+});

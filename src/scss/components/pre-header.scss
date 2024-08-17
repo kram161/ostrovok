@@ -1,0 +1,167 @@
+@import "../config/mixins";
+
+.pre-header{
+	&__swiper {
+		width: 100%;
+		height: 700px;
+		overflow: unset;
+	}
+	&__slide{
+		position: relative;
+		width: 100%;
+		height: 100%;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			filter: brightness(50%)
+		}
+	}
+	&__button-next, &__button-prev {
+		top: unset !important;
+		bottom: 84px !important;
+		transform: translateX(-50%);
+		left: 50%;
+		right: unset;
+		width: 33px;
+		height: 15px;
+	}
+	&__button-prev{
+		margin: 0 58px 0 0;
+	}
+	&__button-next{
+		margin: 0 0 0 58px;
+	}
+	&__button-next::after, &__button-prev::after {
+		content: "";
+	}
+	&__slider{
+		display: flex;
+		flex-direction: column;
+		position: absolute;
+		top: 0;
+		transform: translateX(-50%);
+		left: 50%;
+		width: 100%;
+		height: 100%;
+		padding: 95px 16px 0 16px;
+		h2{
+			font-family: 'OpenSans-Light', sans-serif;
+			font-size: 72px;
+			color: #fff;
+			align-self: flex-end;
+		}
+	}
+	&__subtitle{
+		align-self: flex-end;
+		text-align: center;
+		padding: 34px 0 0 0;
+		font-family: 'Mulish', sans-serif;
+		font-size: 20px;
+		color: #fff;
+		max-width: 333px;
+		line-height: 28px;
+	}
+	&__banner{
+		margin: auto 0 -35px 0;
+		align-self: flex-start;
+		display: flex;
+		&:hover{
+			.pre-header__button{
+				color: #000;
+				background: #fff;
+			}
+		}
+	}
+	&__button{
+		background: #5B6460;
+		text-transform: uppercase;
+		font-family: 'dinpro_light', sans-serif;
+		font-size: 18px;
+		padding: 36px 82px;
+		line-height: 100%;
+		color: #fff;
+		height: 100px;
+		display: flex;
+		align-items: center;
+		transition: all 0.5s ease;
+		border: 1px solid #5B6460;
+	}
+	&__price{
+		padding: 22px 30px;
+		height: 100px;
+		width: 120px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		background: #E9ECE0;
+		span{
+			font-family: 'dinpro_light', sans-serif;
+			font-size: 12px;
+			color: #333333;
+			&:nth-child(1){
+				text-align: left;
+			}
+			&:nth-child(3){
+				text-align: right;
+			}
+		}
+		p{
+			font-family: 'dinpro_medium', sans-serif;
+			font-size: 20px;
+			color: #333333;
+		}
+	}
+
+	@include media-mx(768){
+		&__swiper {
+			height: 500px;
+		}
+
+		&__slider{
+			height: 100%;
+			padding: 35px 16px 0 16px;
+			max-height: 600px;
+			img{
+				height: 100%;
+			}
+			h2{
+				font-size: 42px;
+				text-align: right;
+			}
+		}
+		&__subtitle{
+			padding: 16px 0 0 0;
+			font-size: 16px;
+			line-height: 16px;
+			width: auto;
+			text-align: right;
+		}
+		&__banner{
+			margin: auto auto -15px auto;
+		}
+		&__button{
+			font-size: 16px;
+			padding: 16px 30px;
+			color: #fff;
+			height: 60px;
+		}
+		&__price{
+			padding: 22px 30px;
+			height: 60px;
+			width: 120px;
+			span{
+				font-size: 10px;
+			}
+			p{
+				font-size: 16px;
+			}
+		}
+	}
+	@include media-mx(480){
+		&__slider{
+
+		}
+	}
+}
+

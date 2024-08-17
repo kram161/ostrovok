@@ -1,0 +1,72 @@
+@import "../config/mixins";
+
+.more-about-us{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	position: relative;
+	video{
+		width: 50%;
+		height: auto;
+		filter: brightness(50%)
+	}
+	&__button{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		background: #E9ECE0;
+		width: 150px;
+		height: 150px;
+		border-radius: 50%;
+		transition: all 0.5s ease;
+		border: 1px solid #E9ECE0;
+		p{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+			font-family: 'dinpro_light', sans-serif;
+			font-size: 16px;
+			color: #333333;
+		}
+		&:hover{
+			background: none;
+			p{
+				color: #E9ECE0;
+			}
+		}
+	}
+}
+
+@include media-mx(1024){
+	.more-about-us{
+		&__button{
+			width: 100px;
+			height: 100px;
+		}
+	}
+}
+
+@include media-mx(768){
+	.more-about-us{
+		flex-wrap: wrap;
+		video{
+			width: 100%;
+		}
+		&__button{
+			width: 150px;
+			height: 150px;
+		}
+	}
+}
+
+@include media-mx(480){
+	.more-about-us{
+		&__button{
+			width: 100px;
+			height: 100px;
+		}
+	}
+}

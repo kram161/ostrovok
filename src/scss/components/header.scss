@@ -5,16 +5,18 @@
 	z-index: 50;
 	inline-size: 100%;
 	transition: background-color var(--bs-transition);
-
+	transition: all 0.3s ease;
 	.header-is-sticky & {
 		// ..стили для липкого хедера
 		position: fixed;
-		background-color: #007aff;
+		background-color: rgba(233, 236, 224, 0.9);
+		padding: 16px 0;
 	}
 
 	// .header__container
 	&__container {
 		display: flex;
+		justify-content: space-between;
 		block-size: rem($header-height);
 		align-items: center;
 
@@ -22,11 +24,161 @@
 			block-size: rem($header-height - 50);
 		}
 	}
+
+	.logo{
+		display: flex;
+		max-width: 90px;
+		height: 65px;
+		img{
+			display: flex;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.menu{
+		&__list{
+			display: flex;
+			margin: 0 -18px;
+		}
+		&__item{
+			margin: 0 18px;
+			font-family: 'dinpro_light', sans-serif;
+			font-size: 14px;
+			text-transform: uppercase;
+			a{
+				color: #000;
+				position: relative;
+				&::before{
+					position: absolute;
+					left: 0;
+					bottom: -2px;
+					content: '';
+					background: #000;
+					height: 1px;
+					width: 0;
+					transition: all 0.5s ease;
+				}
+				&:hover{
+					&::before{
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+
+	&__button{
+		padding: 16px 30px;
+		background: #5B6460;
+		font-family: 'dinpro_light', sans-serif;
+		font-size: 14px;
+		text-transform: uppercase;
+		color: #fff;
+		border: 1px solid #5B6460;
+		transition: all 0.5s ease;
+		&:hover{
+			background: none;
+			color: #5B6460;
+		}
+	}
+
+	.mobile-menu{
+		position: fixed;
+		right: -100%;
+		top: 0;
+		width: 100%;
+		min-height: 100vh;
+		background: #fff;
+		transition: all 0.5s ease;
+		z-index: 4;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		&__logo{
+			max-width: 200px;
+			width: 100%;
+			height: auto;
+			img{
+				display: flex;
+				width: 100%;
+				height: 100%;
+			}
+		}
+		&__list{
+			text-align: center;
+			margin: 16px 0;
+			max-width: 350px;
+		}
+		&__item{
+			margin: 8px 0;
+			font-family: 'dinpro_light', sans-serif;
+			font-size: 18px;
+			text-transform: uppercase;
+			a{
+				color: #000;
+				position: relative;
+				&::before{
+					position: absolute;
+					left: 0;
+					bottom: -2px;
+					content: '';
+					background: #000;
+					height: 1px;
+					width: 0;
+					transition: all 0.5s ease;
+				}
+				&:hover{
+					&::before{
+						width: 100%;
+					}
+				}
+			}
+		}
+		&__button{
+			padding: 16px 60px;
+			background: #5B6460;
+			font-family: 'dinpro_light', sans-serif;
+			font-size: 14px;
+			text-transform: uppercase;
+			color: #fff;
+			border: 1px solid #5B6460;
+			transition: all 0.5s ease;
+			&:hover{
+				background: none;
+				color: #5B6460;
+			}
+		}
+	}
+
+	@include media-mx(1024){
+		.logo{
+			max-width: 75px;
+			height: 50px;
+		}
+		&__button{
+			padding: 10px 20px;
+		}
+	}
+	@include media-mx(768){
+		.menu{
+			display: none;
+		}
+		&__button{
+			display: none;
+		}
+	}
+}
+
+.menu-open{
+	.mobile-menu{
+		right: 0;
+	}
 }
 
 // Burger
 
-/*
 .icon-menu {
   display: none;
 
@@ -79,4 +231,3 @@
     }
   }
 }
-*/

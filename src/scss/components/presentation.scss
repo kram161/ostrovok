@@ -1,0 +1,178 @@
+@import "../config/mixins";
+
+.presentation {
+	padding: 135px 0 0 0;
+	display: flex;
+	flex-direction: column;
+
+	&__item{
+		&.reverse{
+			.presentation__description{
+				display: flex;
+				flex-direction: row-reverse;
+			}
+		}
+		&:not(:first-child){
+			padding: 150px 0 0 0;
+		}
+	}
+
+	&__description {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__text{
+		display: flex;
+		flex-direction: column;
+		max-width: 430px;
+		h2{
+			padding: 0 0 50px 0;
+			font-family: 'OpenSans-Regular', sans-serif;
+			font-size: 40px;
+			color: #5B6460;
+		}
+		p{
+			font-family: 'OpenSans-Light', sans-serif;
+			font-size: 16px;
+			line-height: 24px;
+			color: #000;
+		}
+	}
+
+	&__image {
+		display: flex;
+		max-width: 660px;
+		max-height: 438px;
+		width: 100%;
+		height: auto;
+		img{
+			display: flex;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+	&__slider{
+		overflow: hidden;
+		padding: 80px 0 0 0;
+		.swiper-slide{
+			max-height: 350px;
+			width: 100%;
+			height: auto;
+			img{
+				display: flex;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+}
+
+@include media-mx(1024){
+
+	.presentation {
+		padding: 85px 0 0 0;
+
+		&__text{
+			width: calc(50% - 10px);
+			h2{
+				padding: 0 0 25px 0;
+				font-size: 24px;
+			}
+			p{
+				font-size: 14px;
+				line-height: 20px;
+			}
+		}
+
+		&__image {
+			display: flex;
+			width: calc(50% - 10px);
+		}
+		&__slider{
+			overflow: hidden;
+			padding: 80px 0 0 0;
+			.swiper-slide{
+				max-height: 250px;
+				width: 100%;
+				height: auto;
+				img{
+					display: flex;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+		}
+	}
+
+}
+
+@include media-mx(768){
+
+	.presentation {
+		&__description{
+			flex-direction: column !important;
+			max-width: unset;
+		}
+		&__text{
+			width: 100%;
+			max-width: unset;
+			h2{
+				padding: 0 0 25px 0;
+				font-size: 24px;
+			}
+			p{
+				font-size: 14px;
+				line-height: 20px;
+				padding: 0 0 25px 0;
+			}
+		}
+
+		&__image {
+			display: flex;
+			max-width: unset;
+			width: 100%;
+		}
+		&__slider{
+			overflow: hidden;
+			padding: 80px 0 0 0;
+			.swiper-slide{
+				max-height: 250px;
+				width: 100%;
+				height: auto;
+				img{
+					display: flex;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+		}
+	}
+
+}
+
+
+@include media-mx(480){
+
+	.presentation {
+
+		&__image {
+			display: none;
+		}
+		&__slider {
+			overflow: hidden;
+			padding: 30px 0 0 0;
+		}
+
+		&__item{
+			&:not(:first-child){
+				padding: 30px 0 0 0;
+			}
+		}
+	}
+
+}

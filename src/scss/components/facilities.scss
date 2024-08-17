@@ -1,0 +1,64 @@
+@import "../config/mixins";
+
+.facilities{
+	background: #5B6460;
+
+}
+
+.facilities__title{
+	font-family: 'OpenSans-Light', sans-serif;
+	font-size: 40px;
+	padding: 150px 0 20px 0;
+	text-align: center;
+	color: #fff;
+}
+
+.facilities__list{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 100%;
+	padding: 0 0 150px 0;
+	li{
+		width: 25%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 80px 0 0 0;
+		p{
+			font-family: 'OpenSans-Regular', sans-serif;
+			color: #fff;
+			padding: 20px 0 0 0;
+		}
+	}
+}
+
+@include media-mx(768){
+	.facilities__title{
+		font-size: 24px;
+		padding: 75px 0 20px 0;
+	}
+	.facilities__list{
+		padding: 0 0 75px 0;
+		li{
+			width: 33%;
+			svg{
+				width: 50px;
+				height: 50px;
+			}
+			p{
+				font-size: 14px;
+			}
+		}
+	}
+}
+
+@include media-mx(480){
+	.facilities__list{
+		padding: 0 0 75px 0;
+		li{
+			width: 50%;
+		}
+	}
+}
