@@ -2,7 +2,7 @@
 header('Content-Type: application/json; charset=utf-8');
 
 // Настройки (ИЗМЕНИТЕ ЭТИ ДАННЫЕ!)
-$to = 'kram5051@mail.ru'; // Ваш email для получения заявок
+$to = 'migbelg@yandex.ru'; // Ваш email для получения заявок
 $siteName = 'Сайт МИГ'; // Название вашего сайта
 
 // Получаем данные из формы
@@ -46,7 +46,7 @@ if (empty($message)) {
 if (!empty($errors)) {
     echo json_encode([
         'success' => false,
-        'message' => implode('<br>', $errors)
+        'message' => implode($errors)
     ]);
     exit;
 }
@@ -66,68 +66,7 @@ $formattedPhone = formatPhone($phone);
 $emailSubject = "Новая заявка с сайта {$siteName}";
 
 // Формируем тело письма в HTML формате
-$emailBody = "
-<!DOCTYPE html>
-<html lang='ru'>
-<head>
-    <meta charset='UTF-8'>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background-color: #3498db; color: white; padding: 20px; text-align: center; }
-        .content { background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; }
-        .field { margin-bottom: 15px; }
-        .field-label { font-weight: bold; color: #2c3e50; margin-bottom: 5px; }
-        .field-value { padding: 10px; background-color: white; border: 1px solid #eee; border-radius: 4px; }
-        .footer { margin-top: 20px; padding-top: 20px; border-top: 1px solid #ddd; color: #7f8c8d; font-size: 12px; text-align: center; }
-    </style>
-</head>
-<body>
-    <div class='container'>
-        <div class='header'>
-            <h1>Новая заявка с сайта</h1>
-        </div>
-
-        <div class='content'>
-            <div class='field'>
-                <div class='field-label'>Дата и время:</div>
-                <div class='field-value'>" . date('d.m.Y H:i:s') . "</div>
-            </div>
-
-            <div class='field'>
-                <div class='field-label'>Имя:</div>
-                <div class='field-value'>{$name}</div>
-            </div>
-
-            <div class='field'>
-                <div class='field-label'>Телефон:</div>
-                <div class='field-value'>{$formattedPhone}</div>
-            </div>
-
-            <div class='field'>
-                <div class='field-label'>Сообщение:</div>
-                <div class='field-value'>{$message}</div>
-            </div>
-
-            <div class='field'>
-                <div class='field-label'>IP-адрес:</div>
-                <div class='field-value'>{$_SERVER['REMOTE_ADDR']}</div>
-            </div>
-
-            <div class='field'>
-                <div class='field-label'>Страница отправки:</div>
-                <div class='field-value'>{$_SERVER['HTTP_REFERER'] ?? 'Неизвестно'}</div>
-            </div>
-        </div>
-
-        <div class='footer'>
-            <p>Это письмо было отправлено автоматически с сайта {$siteName}</p>
-            <p>Не отвечайте на это письмо</p>
-        </div>
-    </div>
-</body>
-</html>
-";
+$emailBody = "Новая заявка с сайта МИГ. Имя: {$name}, Телефон: {$formattedPhone}, Сообщение: {$message}, IP-адрес: {$_SERVER['REMOTE_ADDR']}, Страница отправки: {$_SERVER['HTTP_REFERER']}";
 
 // Преобразуем заголовки в строку
 $headersString = '';
@@ -184,3 +123,4 @@ function logMessage($data) {
     $logEntry = json_encode($data, JSON_UNESCAPED_UNICODE) . PHP_EOL;
     file_put_contents($logFile, $logEntry, FILE_APPEND | LOCK_EX);
 }
+?>

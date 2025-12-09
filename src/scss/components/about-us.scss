@@ -1,0 +1,44 @@
+.about-us {
+	display: flex;
+	flex-direction: column;
+	margin: 88px 0 48px 0;
+	padding: 0 16px;
+	h3 {
+		color: rgba(11, 33, 46, 1);
+		font-size: 24px;
+		line-height: 100%;
+		font-weight: 700;
+		letter-spacing: 0.24px;
+		font-family: "Roboto", sans-serif;
+	}
+	p {
+		font-family: "Roboto", sans-serif;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 24px;
+		letter-spacing: 0.24px;
+		color: #415662;
+		margin: 4px 0 0 0;
+	}
+}
+
+@media (min-width: 1200px) {
+	.about-us {
+		margin: 116px auto 48px auto;
+		width: 1200px;
+		h3 {
+			font-size: 32px;
+			line-height: 40px;
+		}
+		p {
+			max-width: 760px;
+		}
+	}
+}
+
+@media (min-width: 1560px) {
+	.about-us {
+		width: 1560px;
+		padding: 0;
+	}
+}

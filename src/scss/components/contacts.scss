@@ -1,0 +1,121 @@
+.contacts {
+	display: flex;
+	flex-direction: column;
+	margin: 88px 0 0 0;
+	padding: 0 16px;
+	h3 {
+		color: rgba(11, 33, 46, 1);
+		font-size: 24px;
+		line-height: 100%;
+		font-weight: 700;
+		letter-spacing: 0.24px;
+		font-family: "Roboto", sans-serif;
+	}
+	&--subtitle {
+		margin: 4px 0 0 0;
+		font-family: "Roboto", sans-serif;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 24px;
+		letter-spacing: 0.24px;
+		color: #415662;
+	}
+	&__info {
+		margin: 24px 0 0 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+	&__block {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		border: 1px solid #dfe6ea;
+		padding: 12px;
+		&--icon {
+			width: 48px;
+			height: 48px;
+			margin: 0 0 16px 0;
+		}
+		h3 {
+			font-family: "Roboto", sans-serif;
+			font-weight: 500;
+			font-style: Medium;
+			font-size: 24px;
+			line-height: 32px;
+			letter-spacing: 0.24px;
+			color: #0b212e;
+			margin: 0 0 4px 0;
+		}
+		a,
+		p {
+			font-family: "Roboto", sans-serif;
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 24px;
+			letter-spacing: 0.24px;
+			color: #415662;
+		}
+		p {
+			margin: 0 0 -4px 0;
+		}
+	}
+	&__phone {
+		&--social {
+			display: flex;
+			align-items: center;
+			a {
+				&:nth-child(1) {
+					margin: 0 12px 0 0;
+				}
+			}
+			img {
+				margin: 0 8px 0 0;
+				width: 24px;
+				height: 24px;
+			}
+		}
+	}
+	&__details {
+		&--download {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			a {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				font-family: "Roboto", sans-serif;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 24px;
+				letter-spacing: 0.24px;
+				color: #dd6205;
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.contacts {
+		margin: 116px auto 0 auto;
+		width: 1200px;
+		h3 {
+			font-size: 32px;
+			line-height: 40px;
+		}
+		&__block {
+			width: calc(25% - 6px);
+		}
+	}
+}
+
+@media (min-width: 1560px) {
+	.contacts {
+		width: 1560px;
+		padding: 0;
+		&__block {
+			padding: 24px;
+		}
+	}
+}
