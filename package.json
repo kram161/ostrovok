@@ -78,6 +78,7 @@
 		"webpack-stream": "^7.0.0"
 	},
 	"dependencies": {
+		"@fancyapps/ui": "^6.1.7",
 		"aos": "^2.3.4",
 		"swiper": "^8.4.7"
 	}
