@@ -5,78 +5,214 @@
 	z-index: 50;
 	inline-size: 100%;
 	transition: background-color var(--bs-transition);
+	background: rgba(255, 255, 255, 0.92);
+	position: fixed;
 
 	.header-is-sticky & {
 		// ..стили для липкого хедера
-		position: fixed;
-		background-color: #007aff;
+
+		background-color: #fff;
 	}
 
 	// .header__container
 	&__container {
 		display: flex;
-		block-size: rem($header-height);
+		justify-content: space-between;
+		// block-size: rem($header-height);
 		align-items: center;
+		padding: 15px;
 
 		.header-is-sticky & {
 			block-size: rem($header-height - 50);
 		}
 	}
+	&__logo {
+		position: relative;
+		z-index: 6;
+	}
+	&__menu--button {
+		position: relative;
+		z-index: 6;
+		cursor: pointer;
+		height: 12px;
+		width: 20px;
+		span {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 20px;
+			height: 2px;
+			background: #000;
+			transition: all 0.5s ease;
+			&:nth-child(2) {
+				top: 50%;
+			}
+			&:nth-child(3) {
+				top: 100%;
+			}
+		}
+		&.active {
+			span {
+				&:nth-child(1) {
+					top: 50%;
+					transform: rotate(45deg);
+				}
+				&:nth-child(2) {
+					opacity: 0;
+					left: 20px;
+				}
+				&:nth-child(3) {
+					top: 50%;
+					transform: rotate(-45deg);
+				}
+			}
+		}
+	}
 }
 
-// Burger
-
-/*
-.icon-menu {
-  display: none;
-
-  @include media-mx(768) {
-    display: block;
-    position: relative;
-    width: rem(30);
-    height: rem(18);
-    cursor: pointer;
-    z-index: 5;
-
-    span,
-    &::before,
-    &::after {
-      content: "";
-      transition: all 300ms ease 0ms;
-      right: 0;
-      position: absolute;
-      width: 100%;
-      height: rem(2);
-      background-color: #000;
-    }
-
-    &::before {
-      top: 0;
-    }
-
-    &::after {
-      bottom: 0;
-    }
-
-    span {
-      top: calc(50% - rem(1));
-    }
-
-    .menu-open & {
-      span {
-        width: 0;
-      }
-
-      &::before {
-        top: calc(50% - rem(1));
-        transform: rotate(-45deg);
-      }
-
-      &::after {
-        bottom: calc(50% - rem(1));
-        transform: rotate(45deg);
-      }
-    }
-  }
+.menu {
+	background: #fff;
+	position: fixed;
+	z-index: 5;
+	right: -100vw;
+	top: 0;
+	transition: 0.5s ease;
+	width: 100vw;
+	height: 100vh;
+	padding: 90px 0;
+	display: flex;
+	flex-direction: column;
+	&__list {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+	}
+	&__item {
+		a {
+			color: rgba(65, 86, 98, 1);
+			font-size: 18px;
+			line-height: 24px;
+			font-size: 400;
+			&:hover {
+				color: rgba(11, 33, 46, 1);
+			}
+		}
+	}
+	&__information {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+		margin: auto 0 0 0;
+		&--item {
+			display: flex;
+			gap: 8px;
+			p {
+				color: rgba(221, 98, 5, 1);
+				font-size: 18px;
+				line-height: 24px;
+				font-weight: 400;
+			}
+		}
+	}
+	&.active {
+		right: 0;
+	}
 }
-*/
+
+@media (min-width: 1200px) {
+	.header {
+		&__container {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			padding: 16px;
+		}
+		&__menu--button {
+			display: none;
+		}
+	}
+
+	.menu {
+		background: none;
+		position: relative;
+		right: 0;
+		top: 0;
+		width: 100%;
+		height: auto;
+		padding: 0;
+		flex-direction: row;
+		&__list {
+			flex-direction: row;
+			align-items: center;
+			gap: 16px;
+			margin: 0 0 0 32px;
+		}
+		&__item {
+			a {
+				font-size: 12px;
+				line-height: 24px;
+			}
+		}
+		&__information {
+			flex-direction: row;
+			gap: 16px;
+			margin: 0 0 0 auto;
+			&--item {
+				display: flex;
+				gap: 8px;
+				p {
+					font-size: 12px;
+				}
+			}
+		}
+		&.active {
+			right: 0;
+		}
+	}
+}
+
+@media (min-width: 1560px) {
+	.header {
+		display: flex;
+		justify-content: center;
+		&__container {
+			padding: 16px 0;
+			width: 1560px;
+			margin: 0 auto;
+			margin-inline: unset;
+			max-inline-size: unset;
+			padding-inline: unset;
+		}
+	}
+
+	.menu {
+		background: none;
+		position: relative;
+		right: 0;
+		top: 0;
+		width: 100%;
+		height: auto;
+		padding: 0;
+		flex-direction: row;
+		&__list {
+			flex-direction: row;
+			align-items: center;
+			gap: 16px;
+			margin: 0 0 0 32px;
+		}
+		&__item {
+			a {
+				font-size: 18px;
+			}
+		}
+		&__information {
+			&--item {
+				p {
+					font-size: 18px;
+				}
+			}
+		}
+	}
+}

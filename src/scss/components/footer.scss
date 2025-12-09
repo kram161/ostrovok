@@ -2,17 +2,99 @@
 @import "../config/mixins";
 
 .footer {
-	padding-block: rem(20);
-	background: var(--black-color);
-
-	// .footer__container
+	margin: 16px 0;
 	&__container {
 		display: flex;
-		align-items: center;
-
-		@include media-mx(510) {
+		flex-direction: column;
+		gap: 16px;
+		margin: 0 0 16px 0;
+	}
+	&__description {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		img {
+			width: 36px;
+			height: 36px;
+		}
+		p {
+			font-family: "Roboto", sans-serif;
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 24px;
+			letter-spacing: 0.24px;
+			color: rgba(65, 86, 98, 1);
+		}
+	}
+	&__navigation,
+	&__contacts {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		h3 {
+			font-family: "Roboto", sans-serif;
+			font-weight: 500;
+			font-style: Medium;
+			font-size: 24px;
+			line-height: 32px;
+			letter-spacing: 0.24px;
+			color: rgba(11, 33, 46, 1);
+		}
+		ul {
+			display: flex;
 			flex-direction: column;
-			align-items: flex-start;
+			gap: 16px;
+			li {
+				a {
+					font-family: "Roboto", sans-serif;
+					font-weight: 400;
+					font-size: 16px;
+					line-height: 24px;
+					letter-spacing: 0.24px;
+					color: rgba(65, 86, 98, 1);
+				}
+			}
+		}
+	}
+	&__contacts {
+		&--item {
+			display: flex;
+			gap: 8px;
+			p {
+				color: rgba(221, 98, 5, 1);
+				font-size: 16px;
+				line-height: 24px;
+				font-weight: 400;
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.footer {
+		margin: 48px 0;
+		&__container {
+			flex-direction: row;
+			gap: 0;
+			margin: 0 auto 16px;
+			padding: 0;
+			max-width: 1200px;
+		}
+		&__description {
+			p {
+				max-width: 307px;
+			}
+		}
+		&__navigation {
+			margin: 0 128px 0 auto;
+		}
+	}
+}
+
+@media (min-width: 1560px) {
+	.footer {
+		&__container {
+			max-width: 1560px;
 		}
 	}
 }

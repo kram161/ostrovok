@@ -79,6 +79,6 @@
 	},
 	"dependencies": {
 		"aos": "^2.3.4",
-		"swiper": "^8.4.5"
+		"swiper": "^8.4.7"
 	}
 }
